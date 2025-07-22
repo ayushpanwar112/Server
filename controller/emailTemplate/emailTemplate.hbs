@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a7ffba;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            
+        }
+        .name{
+            text:bold;
+            color:blue
+        }
+        .header {
+            background-color: #039016;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            color: #000000;
+        }
+        p {
+            color: #000000;
+        }
+        .footer {
+            background-color: #039016;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 0 0 5px 5px;
+        }
+        .phn {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #000000;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="header">
+            <h1>{{title}}</h1>
+            {{!-- like from careers  , contact us , partner with us--}}
+        </div>
+        
+        <p><strong>From:</strong> {{email}}</p>
+        <p class ="name">{{name}}</p>
+        <p><strong>Subject:</strong> {{subject}}</p>
+        <p><strong>Message:</strong> {{message}}</p>
+        <div class="phn">
+            <p><strong>Contact:</strong> {{phone}}</p>
+        </div>
+        <div class="footer">
+            <p>Thank you for using our service</p>
+        </div>
+    </div>
+</body>
+</html>
