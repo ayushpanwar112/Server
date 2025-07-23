@@ -19,7 +19,7 @@ export const sendTokenInCookie = (res, token) => {
   console.log("Sending token in cookie:", token);
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     maxAge: 3600000,
     sameSite: "None",
   });

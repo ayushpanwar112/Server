@@ -6,9 +6,13 @@ const ipoSchema = new mongoose.Schema({
   closingDate: { type: Date },
   listingAt: { type: String },
   listingDate: { type: String },
-  issuePrice: { type: Number },
-  issueAmountCr: { type: Number },
-  blogLink: { type: String }
+  issuePrice: { type: String },
+  issueAmountCr: { type: String },
+  blogLink: { type: String },
+  status:String,
+  iposManager:String,
+  review:String,
+  ipoManager:String
 });
 
 export default mongoose.model('Iposlist', ipoSchema);
