@@ -21,6 +21,6 @@ export const sendTokenInCookie = (res, token) => {
     httpOnly: true,
     secure: false,
     maxAge: 3600000,
-    sameSite: "Strict",
+    sameSite: "None",
   });
 };
