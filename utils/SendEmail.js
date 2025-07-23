@@ -20,7 +20,7 @@ const SendEmail = async (options) => {
     // Define the email options
     const mailOptions = {
       from: `"StockBox Customer Service" <${process.env.EMAIL_USERNAME}>`, // Properly formatted sender
-      to: "sachingusain848@gmail.com", // Use dynamic recipient from options
+      to: "inwebcontact.stockboxtech@gmail.com", // Use dynamic recipient from options
       subject: options.subject,
       text: options.text || "", // Ensure text is optional
       html: options.html || "", // Ensure HTML is optional

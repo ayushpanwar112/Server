@@ -24,7 +24,7 @@ blogRoute.get("/review", getReview);
 
 
 // Route for updating author
-blogRoute.post("/sendmail", protectRoute ,email);
+blogRoute.post("/sendmail" ,email);
 
 blogRoute.get("/table", getAllData);     // Get all data
 blogRoute.post("/table",protectRoute ,  addEntry);      // Add new entry

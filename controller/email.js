@@ -31,9 +31,9 @@ const email = async (req, res, next) => {
     title: title.title,
     name: `Hii ,${name}`,
     subject: "Regarding your email To Stockbox",
-    email: "Stockbox@gmail.com",
+    email: "webcontact.stockboxtech@gmail.com",
     message: ` Hello ${name} , We have received your email and we will get back to you soon Thank you for contacting us.`,
-    phone: "73829474923",
+    phone: "7217019005,7217019001",
   });
 
   try {
