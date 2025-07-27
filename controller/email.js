@@ -38,20 +38,20 @@ const email = async (req, res, next) => {
 
   try {
     // Send email to stockbox customer service
-    await SendEmail({
-      email,
-      subject,
-      text: `Message from ${email}: ${message}. Contact: ${phone}`,
-      html: AdminHtmlTemplate,
-    });
+   await SendEmail({
+  to: process.env.EMAIL_USERNAME, // Your admin inbox
+  subject,
+  text: `Message from ${email}: ${message}. Contact: ${phone}`,
+  html: AdminHtmlTemplate,
+});
 
-    // Send email to the user
-    await UserEmail({
-      email,
-      subject: "Regarding your query from Stockbox",
-      text: "Thank you for contacting us! We will get back to you soon.",
-      html: UserHtmlTemplate,
-    });
+await UserEmail({
+  to: email, // The user's email
+  subject: "Regarding your query from Stockbox",
+  text: "Thank you for contacting us! We will get back to you soon.",
+  html: UserHtmlTemplate,
+});
+
 
     console.log("Emails sent successfully");
     res
