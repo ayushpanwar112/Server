@@ -8,7 +8,7 @@ const SendEmail = async (options) => {
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
-    service: "Gmail", // Use Gmail as the email service
+    service: "gmail", // Use Gmail as the email service
       port: 587,
       secure: false, // Use TLS
       auth: {
