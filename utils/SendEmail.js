@@ -1,26 +1,38 @@
-// SendEmail.js
-import { Resend } from 'resend';
+import nodemailer from "nodemailer";
 
 const SendEmail = async (options) => {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error("Missing Resend API key in environment variables.");
+    if (!process.env.EMAIL_USERNAME || !process.env.EMAIL_PASSWORD) {
+      throw new Error("Missing email credentials in environment variables.");
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY); // move this inside after the check
-
-    const response = await resend.emails.send({
-      from: 'StockBox <service@stockboxtech.com>', // Must match your verified domain sender
-      to: options.to || 'sachingusain848@gmail.com',
-      subject: options.subject,
-      text: options.text || '',
-      html: options.html || '',
+    // Create a transporter
+    const transporter = nodemailer.createTransport({
+    service: "Gmail", // Use Gmail as the email service
+      port: 587,
+      secure: false, // Use TLS
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
     });
 
-    console.log("Email sent with ID:", response.id);
+    // Define the email options
+    const mailOptions = {
+      from: `"StockBox Customer Service" <${process.env.EMAIL_USERNAME}>`, // Properly formatted sender
+      to: "sachingusain848@gmail.com", // Use dynamic recipient from options
+      subject: options.subject,
+      text: options.text || "", // Ensure text is optional
+      html: options.html || "", // Ensure HTML is optional
+    };
+
+    // Send email
+    const info = await transporter.sendMail(mailOptions);
+    console.log(`Email sent: ${info.messageId}`);
+
     return { success: true, message: "Email sent successfully" };
   } catch (error) {
-    console.error("Error sending email with Resend:", error);
+    console.error("Error sending email:", error);
     return { success: false, message: "Email sending failed", error };
   }
 };

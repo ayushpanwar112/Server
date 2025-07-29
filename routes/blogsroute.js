@@ -6,7 +6,7 @@ import reviewController from "../controller/reviewControllers.js";
 
 import getReview from "../controller/getReview.js";
 
-import {email} from "../controller/email.js";
+import email from "../controller/email.js";
 import {getAllData, addEntry, updateEntry, deleteEntry} from "../controller/tabledata/TableData.js";
 import { getAllDataY,addEntryY, updateEntryY, deleteEntryY } from "../controller/tableYearly/TableYeralyController.js";
 import { deleteEvent, getEvent, uploadEvent } from "../controller/eventController.js";
